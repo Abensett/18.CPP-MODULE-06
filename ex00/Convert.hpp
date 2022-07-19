@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                       :+:      :+:    :+:   */
+/*   Convert.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP_
-#define BUREAUCRAT_HPP_
+#ifndef CONVERT_HPP_
+#define CONVERT_HPP_
 
 #include <iostream>
 #include <string>
@@ -19,44 +19,33 @@
 using std::string;
 using std::ostream;
 
-class Bureaucrat
+class Convert
 {
  	public:
-		Bureaucrat(void);
-		~Bureaucrat(void);
-		explicit Bureaucrat(const string name, int grade);
-		Bureaucrat(const Bureaucrat &Bureaucrat);
-		Bureaucrat &operator=(constz Bureaucrat &Bureaucrat);
+		Convert(void);
+		~Convert(void);
+		Convert(char * to_convert);
+		Convert(const Convert &Convert);
+		Convert &operator=(const Convert &Convert);
 
-		string 	getName(void) const;
-		int 	getGrade(void) const;
-		void	upGrade(void);
-		void	deGrade(void);
+		string	guess_type(void);
+		// void	convert_to_others(string to_convert_type);
 
-		class GradeTooHighException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw()
-				{
-					return ("Bureaucrat::exception : Grade is too high");
-				}
-		};
-
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw()
-				{
-					return ("Bureaucrat::exception : Grade is too low");
-				}
-		};
+		char	getChar(void) const;
+		int		getInteger(void) const;
+		float	getFloat(void) const;
+		double	getDouble(void) const;
 
 
-	private:
-		const string  	_name;
-		int		_grade;
+	private :
+		string	_to_convert;
+		char	_char;
+		int		_integer;
+		float	_float;
+		double	_double;
+
 };
 
-ostream &operator<<(ostream &o, const Bureaucrat &Bureaucrat);
+ostream &operator<<(ostream &o, const Convert &Convert);
 
 #endif
