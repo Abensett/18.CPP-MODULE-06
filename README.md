@@ -25,7 +25,7 @@ int    d = (int) n;           // Implicit demotion
 ```
 
 ### Reinterpretation types
-> Reinterpretation = conversion identitaire = Changement de type d'adresse
+> Reinterpretation = conversion identitaire = Changement de type d'adresse = le codage des bits n'est pas modifié
 > void * est le type le plus générale, moins précis 
 ```
 float a;
