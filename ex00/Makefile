@@ -10,7 +10,6 @@ CYAN		= \033[36;1m
 RESET		= \033[0m
 WHITE 		= \033[0;m
 
-END			= \x1b[0m
 CLEAR		= \033[2K\r
 # **************************************************************************** #
 #                          PROJECT'S DIRECTORIES                               #
@@ -64,7 +63,7 @@ $(DIROBJ)%.o:%.cpp
 				@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME):		$(DIROBJS)
-				@printf "  $(YELLOW)Compiling and linking all the files $(END)⌛\n"
+				@printf "  $(YELLOW)Compiling and linking all the files $(RESET)⌛\n"
 				@$(CC) $(INCLUDES)  $(CFLAGS) $(DIROBJS)  $(LDFLAGS) -o $@
 				@printf "[$(GREEN)OK$(WHITE)] $(NAME) generated. \n"
 

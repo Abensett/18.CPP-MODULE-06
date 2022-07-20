@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/19 22:33:05 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/20 02:33:48 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ using std::endl;
 
 int main(int ac, char **av)
 {
+	if (ac != 2)
+		return (1);
 	Convert Converter = Convert(av[1]);
 	string to_convert_type = Converter.guess_type();
-
-	cout << to_convert_type << endl;
+	Converter.convert_to_others(to_convert_type);
+	cout << Converter;
 
 	(void)ac;
 	return 0;

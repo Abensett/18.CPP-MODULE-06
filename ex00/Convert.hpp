@@ -15,6 +15,10 @@
 
 #include <iostream>
 #include <string>
+#include <limits.h>
+#include <float.h>
+#include <sstream>
+#include <iomanip>
 
 using std::string;
 using std::ostream;
@@ -28,22 +32,22 @@ class Convert
 		Convert(const Convert &Convert);
 		Convert &operator=(const Convert &Convert);
 
-		string	guess_type(void);
-		// void	convert_to_others(string to_convert_type);
+		string	guess_type(void) ;
+		void	convert_to_others(string to_convert_type);
 
-		char	getChar(void) const;
-		int		getInteger(void) const;
-		float	getFloat(void) const;
-		double	getDouble(void) const;
+		string	getChar(void) const;
+		string	getInteger(void) const;
+		string	getFloat(void) const;
+		string	getDouble(void) const;
 
 
 	private :
+		int 	_nan;
 		string	_to_convert;
 		char	_char;
 		int		_integer;
 		float	_float;
 		double	_double;
-
 };
 
 ostream &operator<<(ostream &o, const Convert &Convert);
