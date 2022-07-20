@@ -1,4 +1,13 @@
 # 17.-C-MODULE-06
+### Summary
+|       Cast       |    Conversion    | Reinterpretation | Upcast | Downcast | Type qualifier |
+| :--------------- |:---------------:|:----------:|:----------:|:----------:|:----------:|
+| Implicit         |     Yes         |            | Yes         |            |            |
+| Static           |     Yes         |            | Yes         |  Yes       |            |
+| Dynamic_Cast     |                  |           | Yes         | Yes        |            |
+| Const_cast      |                  |           |          |         |      Yes      |
+| Reinterpret_cast  |                  |  Yes         | Yes         | Yes        |            |
+| Legacy C Cast  |    Yes | Yes | Yes | Yes | Yes|
 
 # Casts
 ### 1. 5 Types of casts
@@ -14,7 +23,7 @@
 ### 3. Operators types & Explicit
 * [Type cast operator](#Type-cast-operator)  
 * [Explicit](#Explicit)
-### 4. [Summary](#Summary)
+
 
 
 ## 1. 5 Conversion types
@@ -118,12 +127,3 @@ class foo {
 ### Explicit
 >  No conversion is allowed in the constructor.
 
-### Summary
-|       Cast       |    Conversion    | Reinterpretation | Upcast | Downcast | Type qualifier |
-| :--------------- |:---------------:|:----------:|:----------:|:----------:|:----------:|
-| Implicit         |     Yes         |            | Yes         |            |            |
-| Static           |     Yes         |            | Yes         |  Yes       |            |
-| Dynamic_Cast     |                  |           | Yes         | Yes        |            |
-| Const_cast      |                  |           |          |         |      Yes      |
-| Reinterpret_cast  |                  |  Yes         | Yes         | Yes        |            |
-| Legacy C Cast  |    Yes | Yes | Yes | Yes | Yes|
