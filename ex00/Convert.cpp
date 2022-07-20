@@ -66,9 +66,9 @@ string  Convert::getFloat(void) const
 	std::stringstream ss;
 	ss << _float;
 	ss >> returned;
-	if (_to_convert == "+inff" || _to_convert == "+inf")
+	if (_to_convert == "+inff" || _to_convert == "+inf" || _float == FLT_MAX)
 		return "+inff";
-	if ( _to_convert == "-inff"|| _to_convert == "-inf" )
+	if ( _to_convert == "-inff"|| _to_convert == "-inf" || _float == FLT_MIN)
 		return "-inff";
 	if (_nan)
 		return "nanf";
@@ -82,9 +82,9 @@ string  Convert::getDouble(void) const
 	std::stringstream ss;
 	ss << _float;
 	ss >> returned;
-	if (_to_convert == "+inff" || _to_convert == "+inf")
+	if (_to_convert == "+inff" || _to_convert == "+inf" || _float == FLT_MAX)
 		return "+inf";
-	if ( _to_convert == "-inff"|| _to_convert == "-inf" )
+	if ( _to_convert == "-inff"|| _to_convert == "-inf" || _float == FLT_MIN )
 		return "-inf";
 	if (_nan)
 		return "nan";
@@ -172,7 +172,6 @@ string Convert::guess_type(void)
 // convert in every other types
 void Convert::convert_to_others(string to_convert_type)
 {
-
 	if(to_convert_type == "char")
 	{
 		_char	 = _to_convert[0];
@@ -223,7 +222,7 @@ void Convert::convert_to_others(string to_convert_type)
 ostream &operator<<(ostream &o, const Convert &Convert) {
         o << "char: " << Convert.getChar()   <<endl;
         o << "int: " << Convert.getInteger()  <<endl;
-        o << "float: " << std::fixed <<Convert.getFloat()  <<endl;
+        o << "float: " << Convert.getFloat()  <<endl;
         o << "double: " << Convert.getDouble()  <<endl;
 
     return o;

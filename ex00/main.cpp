@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/20 02:33:48 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:24:49 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@
 using std::cout;
 using std::endl;
 
-#define BLUE "\e[0;36m"
+#define RED "\e[0;31m"
 
 int main(int ac, char **av)
 {
 	if (ac != 2)
-		return (1);
+	{
+		cout << RED "You need to give an argument" << endl;
+		return 1;
+	}
 	Convert Converter = Convert(av[1]);
 	string to_convert_type = Converter.guess_type();
 	Converter.convert_to_others(to_convert_type);
 	cout << Converter;
 
-	(void)ac;
 	return 0;
 }
