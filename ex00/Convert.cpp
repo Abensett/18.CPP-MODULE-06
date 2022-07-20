@@ -96,7 +96,7 @@ string  Convert::getDouble(void) const
 // return TRUE if char
 static int isChar(string to_convert)
 {
-	if (to_convert.length() == 1 && to_convert[0] > 32 && to_convert[0] < 126 )		// check printable
+	if (to_convert.length() == 1 && to_convert[0] >= 32 && to_convert[0] <= 126 )		// check printable
 		if (to_convert[0] < 48 || to_convert[0] > 57 )								// check if not between 0 et 9 table ASCII
 			return 1;
 	return 0;
