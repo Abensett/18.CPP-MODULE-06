@@ -44,7 +44,7 @@ string Convert::getChar(void) const
 	returned  += _char;
 	if (_nan)
 		return "impossible";
-	if (_integer > 32 && _integer < 126)
+	if (_integer >= 32 && _integer =< 126)
 		return "'"+returned+"'";
 	return "Non displayable";
 }
@@ -68,7 +68,7 @@ string  Convert::getFloat(void) const
 	ss >> returned;
 	if (_to_convert == "+inff" || _to_convert == "+inf" || _float == FLT_MAX)
 		return "+inff";
-	if ( _to_convert == "-inff"|| _to_convert == "-inf" || _float == FLT_MIN)
+	if ( _to_convert == "-inff"|| _to_convert == "-inf" || _float == -FLT_MAX)
 		return "-inff";
 	if (_nan)
 		return "nanf";
@@ -84,7 +84,7 @@ string  Convert::getDouble(void) const
 	ss >> returned;
 	if (_to_convert == "+inff" || _to_convert == "+inf" || _float == FLT_MAX)
 		return "+inf";
-	if ( _to_convert == "-inff"|| _to_convert == "-inf" || _float == FLT_MIN )
+	if ( _to_convert == "-inff"|| _to_convert == "-inf" || _float == -FLT_MAX )
 		return "-inf";
 	if (_nan)
 		return "nan";
