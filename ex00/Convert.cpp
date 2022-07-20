@@ -44,7 +44,7 @@ string Convert::getChar(void) const
 	returned  += _char;
 	if (_nan)
 		return "impossible";
-	if (_integer >= 32 && _integer =< 126)
+	if (_integer >= 32 && _integer <= 126)
 		return "'"+returned+"'";
 	return "Non displayable";
 }
